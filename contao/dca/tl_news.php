@@ -17,20 +17,20 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['podcastFile'] = [
 $GLOBALS['TL_DCA']['tl_news']['fields']['podcastAuthor'] = [
 	'exclude' => true,
 	'inputType' => 'text',
-	'eval' => ['tl_class' => 'w50 clr'],
+	'eval' => ['tl_class' => 'w50 clr', 'maxlength' => 255],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
 $GLOBALS['TL_DCA']['tl_news']['fields']['podcastSubtitle'] = [
 	'exclude' => true,
 	'inputType' => 'text',
-	'eval' => ['tl_class' => 'w50 clr'],
+	'eval' => ['tl_class' => 'w50 clr', 'maxlength' => 255],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
 $GLOBALS['TL_DCA']['tl_news']['fields']['podcastSummary'] = [
 	'exclude' => true,
-	'inputType' => 'text',
-	'eval' => ['tl_class' => 'w50 clr'],
-	'sql' => "varchar(255) NOT NULL default ''",
+	'inputType' => 'textarea',
+	'eval' => ['tl_class' => 'clr', 'rte' => 'tinyMCE'],
+	'sql' => "text NOT NULL default ''",
 ];
 $GLOBALS['TL_DCA']['tl_news']['fields']['podcastSeason'] = [
 	'exclude' => true,

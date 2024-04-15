@@ -54,10 +54,10 @@ class TransformArticleForFeedListener {
 				$item->set('itunes:episodeType', $article->podcastEpisodeType);
 			}
 			if ($article->podcastSubtitle) {
-				$item->set('itunes:subtitle', $article->podcastSubtitle);
+				$item->set('itunes:subtitle', strip_tags($article->podcastSubtitle));
 			}
 			if ($article->podcastSummary) {
-				$item->set('itunes:summary', $article->podcastSummary);
+				$item->set('itunes:summary', strip_tags($article->podcastSummary));
 			}
 			if ($article->podcastFile) {
 				$file = FilesModel::findByUuid(StringUtil::binToUuid($article->podcastFile));
