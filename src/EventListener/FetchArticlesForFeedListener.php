@@ -18,6 +18,14 @@ class FetchArticlesForFeedListener {
 			$feed->addNS('spotify', 'http://www.spotify.com/ns/rss');
 			$feed->addNS('googleplay', 'http://www.google.com/schemas/play-podcasts/1.0');
 			$feed->addNS('podcast', 'https://podcastindex.org/namespace/1.0');
+			$feed->addNS('atom', 'http://www.w3.org/2005/Atom');
+
+			$atomLink = $feed->newElement();
+			$atomLink->setName('atom:link');
+			$atomLink->setAttribute('href', $event->getRequest()->getUri());
+			$atomLink->setAttribute('rel', 'self');
+			$atomLink->setAttribute('type', 'application/rss+xml');
+			$feed->addElement($atomLink);
 
 			$articles = $event->getArticles();
 			if (\is_array($articles)) {
