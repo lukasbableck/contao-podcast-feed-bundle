@@ -20,10 +20,10 @@ class FetchArticlesForFeedListener {
 			$feed->addNS('podcast', 'https://podcastindex.org/namespace/1.0');
 
 			$articles = $event->getArticles();
-			if(is_array($articles)){
+			if (\is_array($articles)) {
 				$nArticles = [];
-				foreach($articles as $article){
-					if($article->podcast){
+				foreach ($articles as $article) {
+					if ($article->podcast) {
 						$article->image = $article->singleSRC;
 						$article->singleSRC = null;
 						$nArticles[] = $article;
