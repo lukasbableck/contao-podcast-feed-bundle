@@ -1,5 +1,6 @@
 <?php
 
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
 use Contao\System;
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['podcastFeed'] = [
@@ -107,3 +108,8 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastLink'] = [
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'podcastFeed';
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['podcastFeed'] = 'podcastFeed,podcastSubtitle,podcastImage,podcastAuthor,podcastOwnerName,podcastCountry,podcastCategory,podcastExplicit,podcastBlock,podcastType,podcastLink';
+
+PaletteManipulator::create()
+	->addLegend('podcastFeed_legend', 'feed_legend', PaletteManipulator::POSITION_AFTER)
+	->addField('podcastFeed', 'podcastFeed_legend', PaletteManipulator::POSITION_APPEND)
+	->applyToPalette('news_feed', 'tl_page');

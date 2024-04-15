@@ -4,6 +4,7 @@ namespace LukasBableck\ContaoPodcastFeedBundle\ContaoManager;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Contao\NewsBundle\ContaoNewsBundle;
 use LukasBableck\ContaoPodcastFeedBundle\ContaoPodcastFeedBundle;
 
 class Plugin implements BundlePluginInterface {
