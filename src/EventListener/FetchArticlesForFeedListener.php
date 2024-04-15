@@ -1,6 +1,9 @@
 <?php
 namespace LukasBableck\ContaoPodcastFeedBundle\EventListener;
 
+use Contao\FilesModel;
+use Contao\PageModel;
+use Contao\StringUtil;
 use Contao\NewsBundle\Event\FetchArticlesForFeedEvent;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
@@ -22,8 +25,8 @@ class FetchArticlesForFeedListener {
 			if ($page->podcastImage) {
 				$image = FilesModel::findByUuid(StringUtil::binToUuid($page->podcastImage));
 				if ($image) {
-					$path = $event->getBaseURL().'/'.$image->path;
-					$feed->set('itunes:image');
+					$path = $event->getRequest()->getSchemeAndHttpHost().'/'.$image->path;
+					$feed->set('itunes:image', $path);
 					$feed->setLogo($path);
 				}
 			}
@@ -57,6 +60,7 @@ class FetchArticlesForFeedListener {
 					} else {
 						$feed->addElement($cat);
 					}
+					$parentCategory = $cat;
 				}
 			}
 			if ($page->podcastExplicit) {

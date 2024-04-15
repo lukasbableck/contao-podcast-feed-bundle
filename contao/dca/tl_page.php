@@ -7,7 +7,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastFeed'] = [
 	'exclude' => true,
 	'inputType' => 'checkbox',
 	'search' => true,
-	'eval' => ['tl_class' => 'w50 clr'],
+	'eval' => ['tl_class' => 'w50 clr', 'submitOnChange' => true],
 	'sql' => "char(1) NOT NULL default ''",
 ];
 $GLOBALS['TL_DCA']['tl_page']['fields']['podcastSubtitle'] = [
@@ -38,42 +38,140 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastCountry'] = [
 	'exclude' => true,
 	'inputType' => 'select',
 	'options' => System::getContainer()->get('contao.intl.countries')->getCountries(),
-	'eval' => ['tl_class' => 'w50 clr'],
+	'eval' => ['tl_class' => 'w50 clr', 'includeBlankOption' => true, 'chosen' => true, 'mandatory' => true],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
 $GLOBALS['TL_DCA']['tl_page']['fields']['podcastCategory'] = [
 	'exclude' => true,
 	'inputType' => 'select',
 	'options' => ['Arts' => [
-		'Books', 'Design', 'Fashion & Beauty', 'Food', 'Performing Arts', 'Visual Arts',
+		'Arts' => 'Arts',
+		'Arts:Books' => 'Books',
+		'Arts:Design' => 'Design',
+		'Arts:Fashion & Beauty' => 'Fashion & Beauty',
+		'Arts:Food' => 'Food',
+		'Arts:Performing Arts' => 'Performing Arts',
 	], 'Business' => [
-		'Careers', 'Entrepreneurship', 'Investing', 'Management', 'Marketing', 'Non-Profit',
+		'Business' => 'Business',
+		'Business:Careers' => 'Careers',
+		'Business:Entrepreneurship' => 'Entrepreneurship',
+		'Business:Investing' => 'Investing',
+		'Business:Management' => 'Management',
+		'Business:Marketing' => 'Marketing',
+		'Business:Non-Profit' => 'Non-Profit',
 	], 'Comedy' => [
-		'Comedy Interviews', 'Improv', 'Stand-Up',
+		'Comedy' => 'Comedy',
+		'Comedy:Comedy Interviews' => 'Comedy Interviews',
+		'Comedy:Improv' => 'Improv',
+		'Comedy:Stand-Up' => 'Stand-Up',
 	], 'Education' => [
-		'Courses', 'How To', 'Language Learning', 'Self-Improvement',
+		'Education' => 'Education',
+		'Education:Courses' => 'Courses',
+		'Education:How To' => 'How To',
+		'Education:Language Learning' => 'Language Learning',
+		'Education:Self-Improvement' => 'Self-Improvement',
 	], 'Fiction' => [
-		'Comedy Fiction', 'Drama', 'Science Fiction',
-	], 'Government' => [], 'History' => [], 'Health & Fitness' => [
-		'Alternative Health', 'Fitness', 'Medicine', 'Mental Health', 'Nutrition', 'Sexuality',
+		'Fiction' => 'Fiction',
+		'Fiction:Comedy Fiction' => 'Comedy Fiction',
+		'Fiction:Drama' => 'Drama',
+		'Fiction:Science Fiction' => 'Science Fiction',
+	], 'Government' => [
+		'Government' => 'Government',
+	], 'History' => [
+		'History' => 'History',
+	], 'Health & Fitness' => [
+		'Health & Fitness' => 'Health & Fitness',
+		'Health & Fitness:Alternative Health' => 'Alternative Health',
+		'Health & Fitness:Fitness' => 'Fitness',
+		'Health & Fitness:Medicine' => 'Medicine',
+		'Health & Fitness:Mental Health' => 'Mental Health',
+		'Health & Fitness:Nutrition' => 'Nutrition',
+		'Health & Fitness:Sexuality' => 'Sexuality',
 	], 'Kids & Family' => [
-		'Education for Kids', 'Parenting', 'Pets & Animals', 'Stories for Kids',
+		'Kids & Family' => 'Kids & Family',
+		'Kids & Family:Education for Kids' => 'Education for Kids',
+		'Kids & Family:Parenting' => 'Parenting',
+		'Kids & Family:Pets & Animals' => 'Pets & Animals',
+		'Kids & Family:Stories for Kids' => 'Stories for Kids',
 	], 'Leisure' => [
-		'Animation & Manga', 'Automotive', 'Aviation', 'Crafts', 'Games', 'Hobbies', 'Home & Garden', 'Video Games',
+		'Leisure' => 'Leisure',
+		'Leisure:Animation & Manga' => 'Animation & Manga',
+		'Leisure:Automotive' => 'Automotive',
+		'Leisure:Aviation' => 'Aviation',
+		'Leisure:Crafts' => 'Crafts',
+		'Leisure:Games' => 'Games',
+		'Leisure:Hobbies' => 'Hobbies',
+		'Leisure:Home & Garden' => 'Home & Garden',
+		'Leisure:Video Games' => 'Video Games',
 	], 'Music' => [
-		'Music Commentary', 'Music History', 'Music Interviews',
+		'Music' => 'Music',
+		'Music:Music Commentary' => 'Music Commentary',
+		'Music:Music History' => 'Music History',
+		'Music:Music Interviews' => 'Music Interviews',
 	], 'News' => [
-		'Business News', 'Daily News', 'Entertainment News', 'News Commentary', 'Politics', 'Sports News', 'Tech News',
+		'News' => 'News',
+		'News:Business News' => 'Business News',
+		'News:Daily News' => 'Daily News',
+		'News:Entertainment News' => 'Entertainment News',
+		'News:News Commentary' => 'News Commentary',
+		'News:Politics' => 'Politics',
+		'News:Sports News' => 'Sports News',
+		'News:Tech News' => 'Tech News',
 	], 'Religion & Spirituality' => [
-		'Buddhism', 'Christianity', 'Hinduism', 'Islam', 'Judaism', 'Religion', 'Spirituality',
+		'Religion & Spirituality' => 'Religion & Spirituality',
+		'Religion & Spirituality:Buddhism' => 'Buddhism',
+		'Religion & Spirituality:Christianity' => 'Christianity',
+		'Religion & Spirituality:Hinduism' => 'Hinduism',
+		'Religion & Spirituality:Islam' => 'Islam',
+		'Religion & Spirituality:Judaism' => 'Judaism',
+		'Religion & Spirituality:Religion' => 'Religion',
+		'Religion & Spirituality:Spirituality' => 'Spirituality',
 	], 'Science' => [
-		'Astronomy', 'Chemistry', 'Earth Sciences', 'Life Sciences', 'Mathematics', 'Natural Sciences', 'Nature', 'Physics', 'Social Sciences',
+		'Science' => 'Science',
+		'Science:Astronomy' => 'Astronomy',
+		'Science:Chemistry' => 'Chemistry',
+		'Science:Earth Sciences' => 'Earth Sciences',
+		'Science:Life Sciences' => 'Life Sciences',
+		'Science:Mathematics' => 'Mathematics',
+		'Science:Natural Sciences' => 'Natural Sciences',
+		'Science:Nature' => 'Nature',
+		'Science:Physics' => 'Physics',
+		'Science:Social Sciences' => 'Social Sciences',
 	], 'Society & Culture' => [
-		'Documentary', 'Personal Journals', 'Philosophy', 'Places & Travel', 'Relationships',
+		'Society & Culture' => 'Society & Culture',
+		'Society & Culture:Documentary' => 'Documentary',
+		'Society & Culture:Personal Journals' => 'Personal Journals',
+		'Society & Culture:Philosophy' => 'Philosophy',
+		'Society & Culture:Places & Travel' => 'Places & Travel',
+		'Society & Culture:Relationships' => 'Relationships',
 	], 'Sports' => [
-		'Baseball', 'Basketball', 'Cricket', 'Fantasy Sports', 'Football', 'Golf', 'Hockey', 'Rugby', 'Running', 'Soccer', 'Swimming', 'Tennis', 'Volleyball', 'Wilderness', 'Wrestling',
-	], 'Technology' => [], 'True Crime' => [], 'TV & Film' => [
-		'After Shows', 'Film History', 'Film Interviews', 'Film Reviews', 'TV Reviews',
+		'Sports' => 'Sports',
+		'Sports:Baseball' => 'Baseball',
+		'Sports:Basketball' => 'Basketball',
+		'Sports:Cricket' => 'Cricket',
+		'Sports:Fantasy Sports' => 'Fantasy Sports',
+		'Sports:Football' => 'Football',
+		'Sports:Golf' => 'Golf',
+		'Sports:Hockey' => 'Hockey',
+		'Sports:Rugby' => 'Rugby',
+		'Sports:Running' => 'Running',
+		'Sports:Soccer' => 'Soccer',
+		'Sports:Swimming' => 'Swimming',
+		'Sports:Tennis' => 'Tennis',
+		'Sports:Volleyball' => 'Volleyball',
+		'Sports:Wilderness' => 'Wilderness',
+		'Sports:Wrestling' => 'Wrestling',
+	], 'Technology' => [
+		'Technology' => 'Technology',
+	], 'True Crime' => [
+		'True Crime' => 'True Crime',
+	], 'TV & Film' => [
+		'TV & Film' => 'TV & Film',
+		'TV & Film:After Shows' => 'After Shows',
+		'TV & Film:Film History' => 'Film History',
+		'TV & Film:Film Interviews' => 'Film Interviews',
+		'TV & Film:Film Reviews' => 'Film Reviews',
+		'TV & Film:TV Reviews' => 'TV Reviews',
 	],
 	],
 	'eval' => ['tl_class' => 'w50 clr', 'includeBlankOption' => true, 'chosen' => true, 'mandatory' => true],
@@ -82,15 +180,9 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastCategory'] = [
 $GLOBALS['TL_DCA']['tl_page']['fields']['podcastExplicit'] = [
 	'exclude' => true,
 	'inputType' => 'select',
-	'options' => &$GLOBALS['TL_LANG']['tl_page']['podcastExplicits'],
+	'options' => &$GLOBALS['TL_LANG']['podcast']['explicit_options'],
 	'eval' => ['tl_class' => 'w50 clr', 'mandatory' => true],
 	'sql' => "varchar(255) NOT NULL default ''",
-];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastBlock'] = [
-	'exclude' => true,
-	'inputType' => 'checkbox',
-	'eval' => ['tl_class' => 'w50'],
-	'sql' => "char(1) NOT NULL default ''",
 ];
 $GLOBALS['TL_DCA']['tl_page']['fields']['podcastType'] = [
 	'exclude' => true,
@@ -99,17 +191,24 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastType'] = [
 	'eval' => ['tl_class' => 'w50'],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
+$GLOBALS['TL_DCA']['tl_page']['fields']['podcastBlock'] = [
+	'exclude' => true,
+	'inputType' => 'checkbox',
+	'eval' => ['tl_class' => 'w50'],
+	'sql' => "char(1) NOT NULL default ''",
+];
 $GLOBALS['TL_DCA']['tl_page']['fields']['podcastLink'] = [
 	'exclude' => true,
 	'inputType' => 'pageTree',
-	'eval' => ['fieldType' => 'radio', 'tl_class' => 'w50'],
+	'eval' => ['fieldType' => 'radio', 'tl_class' => 'w50 clr'],
 	'sql' => "int(10) unsigned NOT NULL default '0'",
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'podcastFeed';
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['podcastFeed'] = 'podcastFeed,podcastSubtitle,podcastImage,podcastAuthor,podcastOwnerName,podcastCountry,podcastCategory,podcastExplicit,podcastBlock,podcastType,podcastLink';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['podcastFeed'] = 'podcastSubtitle,podcastImage,podcastAuthor,podcastOwnerName,podcastCountry,podcastCategory,podcastExplicit,podcastType,podcastBlock,podcastLink';
 
 PaletteManipulator::create()
 	->addLegend('podcastFeed_legend', 'feed_legend', PaletteManipulator::POSITION_AFTER)
 	->addField('podcastFeed', 'podcastFeed_legend', PaletteManipulator::POSITION_APPEND)
-	->applyToPalette('news_feed', 'tl_page');
+	->applyToPalette('news_feed', 'tl_page')
+;
