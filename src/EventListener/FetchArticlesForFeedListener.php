@@ -7,7 +7,7 @@ use Contao\PageModel;
 use Contao\StringUtil;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
-#[AsEventListener(priority: 100)]
+#[AsEventListener]
 class FetchArticlesForFeedListener {
 	public function __invoke(FetchArticlesForFeedEvent $event): void {
 		if ($event->getPageModel()->podcastFeed) {
@@ -18,6 +18,19 @@ class FetchArticlesForFeedListener {
 			$feed->addNS('spotify', 'http://www.spotify.com/ns/rss');
 			$feed->addNS('googleplay', 'http://www.google.com/schemas/play-podcasts/1.0');
 			$feed->addNS('podcast', 'https://podcastindex.org/namespace/1.0');
+
+			$articles = $event->getArticles();
+			if(is_array($articles)){
+				$nArticles = [];
+				foreach($articles as $article){
+					if($article->podcast){
+						$article->image = $article->singleSRC;
+						$article->singleSRC = null;
+						$nArticles[] = $article;
+					}
+				}
+				$event->setArticles($nArticles);
+			}
 
 			if ($page->podcastSubtitle) {
 				$feed->set('itunes:subtitle', $page->podcastSubtitle);

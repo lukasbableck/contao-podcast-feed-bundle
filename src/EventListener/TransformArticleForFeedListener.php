@@ -13,10 +13,11 @@ class TransformArticleForFeedListener {
 			if (!($item = $event->getItem())) {
 				return;
 			}
+
 			$feed = $event->getFeed();
 			$article = $event->getArticle();
 
-			$image = $article->singleSRC;
+			$image = $article->image;
 			if ($article->addImage && $image) {
 				$image = FilesModel::findByUuid(StringUtil::binToUuid($image));
 				if ($image) {
