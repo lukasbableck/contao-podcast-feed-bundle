@@ -18,7 +18,6 @@ class TransformArticleForFeedListener {
 			$article = $event->getArticle();
 
 			$item->set('itunes:title', htmlentities($item->getTitle()));
-			$item->set('itunes:summary', strip_tags($article->teaser));
 
 			$image = $article->image;
 			if ($article->addImage && $image) {
