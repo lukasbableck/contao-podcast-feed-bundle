@@ -17,11 +17,17 @@ class TransformArticleForFeedListener {
 			$feed = $event->getFeed();
 			$article = $event->getArticle();
 
+			$item->set('itunes:title', $item->getTitle());
+			$item->set('itunes:summary', strip_tags($article->teaser));
+
 			$image = $article->image;
 			if ($article->addImage && $image) {
 				$image = FilesModel::findByUuid(StringUtil::binToUuid($image));
 				if ($image) {
-					$item->set('itunes:image', $event->getBaseURL().'/'.$image->path);
+					$imageElement = $item->newElement();
+					$imageElement->setName('itunes:image');
+					$imageElement->setAttribute('href', $event->getBaseURL().'/'.$image->path);
+					$item->addElement($imageElement);
 				}
 			}
 

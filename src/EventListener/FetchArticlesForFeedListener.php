@@ -65,7 +65,7 @@ class FetchArticlesForFeedListener {
 				$feed->set('spotify:countryOfOrigin', $page->podcastCountry);
 			}
 			if ($page->podcastCategory) {
-				$feed->set('category', $page->podcastCategory);
+				$feed->set('category', htmlentities($page->podcastCategory));
 
 				$categories = $page->podcastCategory;
 				$categories = explode(':', $categories);
@@ -88,13 +88,16 @@ class FetchArticlesForFeedListener {
 			if ($page->podcastBlock) {
 				$feed->set('itunes:block', 'yes');
 			}
+			if ($page->feedDescription) {
+				$feed->set('itunes:summary', $page->feedDescription);
+			}
 			if ($page->podcastType) {
 				$feed->set('itunes:type', $page->podcastType);
 			}
 			if ($page->podcastLink) {
 				$link = PageModel::findByPk($page->podcastLink);
 				if ($link) {
-					$feed->set('link', $link->getAbsoluteUrl());
+					$feed->setLink($link->getAbsoluteUrl());
 				}
 			}
 		}
