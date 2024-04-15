@@ -2,43 +2,43 @@
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastFile'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastFile'] = [
 	'exclude' => true,
 	'inputType' => 'fileTree',
 	'eval' => ['filesOnly' => true, 'fieldType' => 'radio', 'tl_class' => 'w50 clr', 'mandatory' => true, 'extensions' => 'mp3'],
 	'sql' => 'binary(16) NULL',
 ];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastAuthor'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastAuthor'] = [
 	'exclude' => true,
 	'inputType' => 'text',
 	'eval' => ['tl_class' => 'w50 clr'],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastSubtitle'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastSubtitle'] = [
 	'exclude' => true,
 	'inputType' => 'text',
 	'eval' => ['tl_class' => 'w50 clr'],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastSummary'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastSummary'] = [
 	'exclude' => true,
 	'inputType' => 'text',
 	'eval' => ['tl_class' => 'w50 clr'],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastSeason'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastSeason'] = [
 	'exclude' => true,
 	'inputType' => 'text',
 	'eval' => ['tl_class' => 'w50 clr'],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastEpisode'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastEpisode'] = [
 	'exclude' => true,
 	'inputType' => 'text',
 	'eval' => ['tl_class' => 'w50'],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastEpisodeType'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastEpisodeType'] = [
 	'exclude' => true,
 	'inputType' => 'select',
 	'options' => ['full', 'trailer', 'bonus'],
@@ -46,13 +46,13 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastEpisodeType'] = [
 	'eval' => ['tl_class' => 'w50 clr', 'includeBlankOption' => true, 'chosen' => true, 'mandatory' => true],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastBlock'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastBlock'] = [
 	'exclude' => true,
 	'inputType' => 'checkbox',
 	'eval' => ['tl_class' => 'w50 clr'],
 	'sql' => "char(1) NOT NULL default ''",
 ];
-$GLOBALS['TL_DCA']['tl_page']['fields']['podcastExplicit'] = [
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastExplicit'] = [
 	'exclude' => true,
 	'inputType' => 'select',
 	'options' => &$GLOBALS['TL_LANG']['podcast']['explicit_options'],
@@ -61,7 +61,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastExplicit'] = [
 ];
 
 PaletteManipulator::create()
-	->addLegend('podcast_legend', 'title_legend', PaletteManipulator::POSITION_AFTER)
+	->addLegend('podcast_legend', 'enclosure_legend', PaletteManipulator::POSITION_AFTER)
 	->addField('podcastFile', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
 	->addField('podcastAuthor', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
 	->addField('podcastSubtitle', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
@@ -74,4 +74,5 @@ PaletteManipulator::create()
 	->applyToPalette('default', 'tl_news')
 	->applyToPalette('internal', 'tl_news')
 	->applyToPalette('article', 'tl_news')
-	->applyToPalette('external', 'tl_news');
+	->applyToPalette('external', 'tl_news')
+;

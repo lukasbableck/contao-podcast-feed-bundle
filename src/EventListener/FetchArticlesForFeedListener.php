@@ -2,9 +2,9 @@
 namespace LukasBableck\ContaoPodcastFeedBundle\EventListener;
 
 use Contao\FilesModel;
+use Contao\NewsBundle\Event\FetchArticlesForFeedEvent;
 use Contao\PageModel;
 use Contao\StringUtil;
-use Contao\NewsBundle\Event\FetchArticlesForFeedEvent;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
 #[AsEventListener(priority: 100)]

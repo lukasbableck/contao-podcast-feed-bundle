@@ -52,11 +52,11 @@ class TransformArticleForFeedListener {
 			if ($article->podcastSummary) {
 				$item->set('itunes:summary', $article->podcastSummary);
 			}
-			if($article->podcastFile){
+			if ($article->podcastFile) {
 				$file = FilesModel::findByUuid(StringUtil::binToUuid($article->podcastFile));
-				if($file){
+				if ($file) {
 					$item->setEnclosure($event->getBaseURL().'/'.$file->path, $file->mime, $file->filesize);
-					$getID3 = new \getID3;
+					$getID3 = new \getID3();
 					$file = $getID3->analyze($file->getAbsolutePath());
 					$item->set('itunes:duration', $file['playtime_string']);
 				}
