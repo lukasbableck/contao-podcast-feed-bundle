@@ -1,7 +1,7 @@
 {
 	"name": "lukasbableck/contao-podcast-feed-bundle",
 	"type": "contao-bundle",
-	"description": "This bundle provides a page type that generates a podcast rss feed from news articles.",
+	"description": "This bundle adds podcast options to the newsfeed page type.",
 	"keywords": [
 		"news",
 		"rss",
