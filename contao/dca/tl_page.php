@@ -16,6 +16,12 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastSubtitle'] = [
 	'eval' => ['tl_class' => 'w50 clr'],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
+$GLOBALS['TL_DCA']['tl_page']['fields']['podcastCopyright'] = [
+	'exclude' => true,
+	'inputType' => 'text',
+	'eval' => ['tl_class' => 'w50 clr'],
+	'sql' => "varchar(255) NOT NULL default ''",
+];
 $GLOBALS['TL_DCA']['tl_page']['fields']['podcastImage'] = [
 	'exclude' => true,
 	'inputType' => 'fileTree',
@@ -205,7 +211,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['podcastLink'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'podcastFeed';
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['podcastFeed'] = 'podcastSubtitle,podcastImage,podcastAuthor,podcastOwnerName,podcastCountry,podcastCategory,podcastExplicit,podcastType,podcastBlock,podcastLink';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['podcastFeed'] = 'podcastSubtitle,podcastCopyright,podcastImage,podcastAuthor,podcastOwnerName,podcastCountry,podcastCategory,podcastExplicit,podcastType,podcastBlock,podcastLink';
 
 PaletteManipulator::create()
 	->addLegend('podcastFeed_legend', 'feed_legend', PaletteManipulator::POSITION_AFTER)

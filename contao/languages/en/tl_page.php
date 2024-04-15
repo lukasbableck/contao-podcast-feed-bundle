@@ -3,6 +3,7 @@
 $GLOBALS['TL_LANG']['tl_page']['podcastFeed_legend'] = 'Podcast Feed';
 $GLOBALS['TL_LANG']['tl_page']['podcastFeed'] = ['Enable podcast feed', ''];
 $GLOBALS['TL_LANG']['tl_page']['podcastSubtitle'] = ['Subtitle', 'Enter the subtitle of the podcast here.'];
+$GLOBALS['TL_LANG']['tl_page']['podcastCopyright'] = ['Copyright', 'Enter the copyright information of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastImage'] = ['Image', 'Select the image of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastAuthor'] = ['Author', 'Enter the author of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastOwnerName'] = ['Owner name', 'Enter the name of the owner of the podcast here.'];

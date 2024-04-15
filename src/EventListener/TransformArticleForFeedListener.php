@@ -6,7 +6,7 @@ use Contao\NewsBundle\Event\TransformArticleForFeedEvent;
 use Contao\StringUtil;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
-#[AsEventListener(priority: -100)]
+#[AsEventListener(priority: -200)]
 class TransformArticleForFeedListener {
 	public function __invoke(TransformArticleForFeedEvent $event): void {
 		if ($event->getPageModel()->podcastFeed) {
@@ -55,9 +55,15 @@ class TransformArticleForFeedListener {
 			if ($article->podcastFile) {
 				$file = FilesModel::findByUuid(StringUtil::binToUuid($article->podcastFile));
 				if ($file) {
-					$item->setEnclosure($event->getBaseURL().'/'.$file->path, $file->mime, $file->filesize);
+					$path = $file->getAbsolutePath();
+					$media = $item->newMedia();
+					$media->setUrl($event->getBaseURL().'/'.$file->path);
+					$media->setType(mime_content_type($path));
+					$media->setLength(filesize($path));
+					$item->addMedia($media);
+
 					$getID3 = new \getID3();
-					$file = $getID3->analyze($file->getAbsolutePath());
+					$file = $getID3->analyze($path);
 					$item->set('itunes:duration', $file['playtime_string']);
 				}
 			}

@@ -22,6 +22,9 @@ class FetchArticlesForFeedListener {
 			if ($page->podcastSubtitle) {
 				$feed->set('itunes:subtitle', $page->podcastSubtitle);
 			}
+			if ($page->podcastCopyrighty) {
+				$feed->set('itunes:copyright', $page->podcastCopyright);
+			}
 			if ($page->podcastImage) {
 				$image = FilesModel::findByUuid(StringUtil::binToUuid($page->podcastImage));
 				if ($image) {
