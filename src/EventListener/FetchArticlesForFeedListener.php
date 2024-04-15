@@ -42,7 +42,10 @@ class FetchArticlesForFeedListener {
 				$image = FilesModel::findByUuid(StringUtil::binToUuid($page->podcastImage));
 				if ($image) {
 					$path = $event->getRequest()->getSchemeAndHttpHost().'/'.$image->path;
-					$feed->set('itunes:image', $path);
+					$imageElement = $feed->newElement();
+					$imageElement->setName('itunes:image');
+					$imageElement->setAttribute('href', $path);
+					$feed->addElement($imageElement);
 					$feed->setLogo($path);
 				}
 			}
