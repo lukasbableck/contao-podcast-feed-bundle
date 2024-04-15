@@ -2,6 +2,12 @@
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcast'] = [
+	'exclude' => true,
+	'inputType' => 'checkbox',
+	'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 clr'],
+	'sql' => "char(1) NOT NULL default ''",
+];
 $GLOBALS['TL_DCA']['tl_news']['fields']['podcastFile'] = [
 	'exclude' => true,
 	'inputType' => 'fileTree',
@@ -60,17 +66,12 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['podcastExplicit'] = [
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
 
+$GLOBALS['TL_DCA']['tl_news']['palettes']['__selector__'][] = 'podcast';
+$GLOBALS['TL_DCA']['tl_news']['subpalettes']['podcast'] = 'podcastFile,podcastAuthor,podcastSubtitle,podcastSummary,podcastSeason,podcastEpisode,podcastEpisodeType,podcastBlock,podcastExplicit';
+
 PaletteManipulator::create()
 	->addLegend('podcast_legend', 'enclosure_legend', PaletteManipulator::POSITION_AFTER)
-	->addField('podcastFile', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
-	->addField('podcastAuthor', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
-	->addField('podcastSubtitle', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
-	->addField('podcastSummary', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
-	->addField('podcastSeason', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
-	->addField('podcastEpisode', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
-	->addField('podcastEpisodeType', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
-	->addField('podcastBlock', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
-	->addField('podcastExplicit', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
+	->addField('podcast', 'podcast_legend', PaletteManipulator::POSITION_APPEND)
 	->applyToPalette('default', 'tl_news')
 	->applyToPalette('internal', 'tl_news')
 	->applyToPalette('article', 'tl_news')

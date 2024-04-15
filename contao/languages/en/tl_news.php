@@ -1,5 +1,7 @@
 <?php
 
+$GLOBALS['TL_LANG']['tl_news']['podcast_legend'] = 'Podcast';
+$GLOBALS['TL_LANG']['tl_news']['podcast'] = ['Podcast', 'Enable the podcast feed for this news entry.'];
 $GLOBALS['TL_LANG']['tl_news']['podcastFile'] = ['Podcast file', 'Choose the podcast file here.'];
 $GLOBALS['TL_LANG']['tl_news']['podcastAuthor'] = ['Author', 'Enter the author of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_news']['podcastSubtitle'] = ['Subtitle', 'Enter the subtitle of the podcast here.'];
