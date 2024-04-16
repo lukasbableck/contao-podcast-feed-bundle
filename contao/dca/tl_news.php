@@ -44,6 +44,12 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['podcastEpisode'] = [
 	'eval' => ['tl_class' => 'w50'],
 	'sql' => "varchar(255) NOT NULL default ''",
 ];
+$GLOBALS['TL_DCA']['tl_news']['fields']['podcastGUID'] = [
+	'exclude' => true,
+	'inputType' => 'text',
+	'eval' => ['tl_class' => 'w50'],
+	'sql' => "varchar(255) NOT NULL default ''",
+];
 $GLOBALS['TL_DCA']['tl_news']['fields']['podcastEpisodeType'] = [
 	'exclude' => true,
 	'inputType' => 'select',
@@ -67,7 +73,7 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['podcastExplicit'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_news']['palettes']['__selector__'][] = 'podcast';
-$GLOBALS['TL_DCA']['tl_news']['subpalettes']['podcast'] = 'podcastFile,podcastAuthor,podcastSubtitle,podcastSummary,podcastSeason,podcastEpisode,podcastEpisodeType,podcastBlock,podcastExplicit';
+$GLOBALS['TL_DCA']['tl_news']['subpalettes']['podcast'] = 'podcastFile,podcastAuthor,podcastSubtitle,podcastSummary,podcastSeason,podcastEpisode,podcastGUID,podcastEpisodeType,podcastBlock,podcastExplicit';
 
 PaletteManipulator::create()
 	->addLegend('podcast_legend', 'enclosure_legend', PaletteManipulator::POSITION_AFTER)

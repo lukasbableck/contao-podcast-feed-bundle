@@ -8,6 +8,7 @@ $GLOBALS['TL_LANG']['tl_news']['podcastSubtitle'] = ['Subtitle', 'Enter the subt
 $GLOBALS['TL_LANG']['tl_news']['podcastSummary'] = ['Summary', 'Enter the summary of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_news']['podcastSeason'] = ['Season', 'Enter the season of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_news']['podcastEpisode'] = ['Episode', 'Enter the episode of the podcast here.'];
+$GLOBALS['TL_LANG']['tl_news']['podcastGUID'] = ['Override GUID', 'Enter a GUID here to override the automatically generated one.'];
 $GLOBALS['TL_LANG']['tl_news']['podcastEpisodeType'] = ['Type', 'Choose the type of the episode here.'];
 $GLOBALS['TL_LANG']['tl_news']['podcastEpisodeTypes'] = ['full' => 'Full', 'trailer' => 'Trailer', 'bonus' => 'Bonus'];
 $GLOBALS['TL_LANG']['tl_news']['podcastBlock'] = ['Block', 'Choose here if the episode should be blocked.'];

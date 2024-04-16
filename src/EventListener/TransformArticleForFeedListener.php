@@ -73,6 +73,13 @@ class TransformArticleForFeedListener {
 					$item->set('itunes:duration', $file['playtime_string']);
 				}
 			}
+			if ($article->podcastGUID) {
+				$guid = $item->newElement();
+				$guid->setName('guid');
+				$guid->setAttribute('isPermaLink', 'false');
+				$guid->setValue($article->podcastGUID);
+				$item->addElement($guid);
+			}
 		}
 	}
 }
