@@ -67,6 +67,12 @@ class FetchArticlesForFeedListener {
 				$name->setName('itunes:name');
 				$name->setValue($page->podcastOwnerName);
 				$owner->addElement($name);
+				if ($page->podcastEmail) {
+					$email = $feed->newElement();
+					$email->setName('itunes:email');
+					$email->setValue($page->podcastEmail);
+					$owner->addElement($email);
+				}
 				$feed->addElement($owner);
 			}
 			if ($page->podcastCountry) {

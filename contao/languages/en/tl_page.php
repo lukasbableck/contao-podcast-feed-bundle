@@ -7,6 +7,7 @@ $GLOBALS['TL_LANG']['tl_page']['podcastCopyright'] = ['Copyright', 'Enter the co
 $GLOBALS['TL_LANG']['tl_page']['podcastImage'] = ['Image', 'Select the image of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastAuthor'] = ['Author', 'Enter the author of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastOwnerName'] = ['Owner name', 'Enter the name of the owner of the podcast here.'];
+$GLOBALS['TL_LANG']['tl_page']['podcastEmail'] = ['Email address', 'Enter the email address of the owner of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastCountry'] = ['Country', 'Enter the country of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastCategory'] = ['Category', 'Select the category of the podcast here.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastExplicit'] = ['Explicit', 'Select here whether the podcast is explicit.'];

@@ -7,6 +7,7 @@ $GLOBALS['TL_LANG']['tl_page']['podcastCopyright'] = ['Urheberrecht', 'Geben Sie
 $GLOBALS['TL_LANG']['tl_page']['podcastImage'] = ['Bild', 'Wählen Sie hier das Bild des Podcasts aus.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastAuthor'] = ['Autor', 'Geben Sie hier den Autor des Podcasts ein.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastOwnerName'] = ['Name des Besitzers', 'Geben Sie hier den Namen des Besitzers des Podcasts ein.'];
+$GLOBALS['TL_LANG']['tl_page']['podcastEmail'] = ['E-Mail Adresse', 'Geben Sie hier die E-Mail Adresse des Besitzers des Podcasts ein.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastCountry'] = ['Land', 'Geben Sie hier das Land des Podcasts ein.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastCategory'] = ['Kategorie', 'Wählen Sie hier die Kategorie des Podcasts aus.'];
 $GLOBALS['TL_LANG']['tl_page']['podcastExplicit'] = ['Explizit', 'Wählen Sie hier aus, ob der Podcast explizit ist.'];
