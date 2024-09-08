@@ -30,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_news']['fields']['podcastSummary'] = [
 	'exclude' => true,
 	'inputType' => 'textarea',
 	'eval' => ['tl_class' => 'clr', 'rte' => 'tinyMCE', 'allowHtml' => true],
-	'sql' => "text NOT NULL default ''",
+	'sql' => "text NULL",
 ];
 $GLOBALS['TL_DCA']['tl_news']['fields']['podcastSeason'] = [
 	'exclude' => true,
